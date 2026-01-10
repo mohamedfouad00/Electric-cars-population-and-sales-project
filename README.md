@@ -5,4 +5,4 @@
 
 ## Excel Dashboard
 
-![Population & Sales Dashboard](Dashboards/excel.png)
+![Population & Sales Dashboard](Dashboards/Excel.png)
