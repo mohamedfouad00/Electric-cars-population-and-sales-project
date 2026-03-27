@@ -1,12 +1,3 @@
-## Power BI Dashboard
-
-![Population & Sales Dashboard](Dashboards/Power_bi.png)
-
-
-## Excel Dashboard
-
-![Population & Sales Dashboard](Dashboards/Excel.png)
-
 ## Power BI Dashboards
 
 ### Population Dashboard
