@@ -2,22 +2,22 @@
 
 ### Population Dashboard
 
-![Population & Sales Dashboard](Dashboards/Population.png)
+![Population & Sales Dashboard](dashboards/Population.png)
 
 ### Market Dashboard
 
-![Market & Location Share Dashboard](Dashboards/Market.png)
+![Market & Location Share Dashboard](dashboards/Market.png)
 
 ### Tooltip Dashboard
 
-![Tooltip Dashboard](Dashboards/Tooltip.png)
+![Tooltip Dashboard](dashboards/Tooltip.png)
 
 
 ## Excel Dashboard
 
-![Excel Dashboard](Dashboards/Excel.png)
+![Excel Dashboard](dashboards/Excel.png)
 
 
 ## Data Model
 
-![Model](Dashboards/Model.png)
+![Model](dashboards/Model.png)
