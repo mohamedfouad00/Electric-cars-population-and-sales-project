@@ -1,9 +1,9 @@
 # EV Population & Market Analytics
 
-![Status](https://img.shields.io/badge/Status-Completed-FFC300?style=for-the-badge&logo=github&logoColor=black)
+![Status](https://img.shields.io/badge/Status-Completed-FFD60A?style=for-the-badge&logo=github&logoColor=black)
 ![Tools](https://img.shields.io/badge/Tools-Power%20BI%20%7C%20Excel-FFD60A?style=for-the-badge&logo=microsoftpowerbi&logoColor=black)
-![Database](https://img.shields.io/badge/Database-SQL%20Server-FFB703?style=for-the-badge&logo=microsoftsqlserver&logoColor=black)
-![Language](https://img.shields.io/badge/Language-Python-FDC500?style=for-the-badge&logo=python&logoColor=black)
+![Database](https://img.shields.io/badge/Database-SQL%20Server-FFD60A?style=for-the-badge&logo=microsoftsqlserver&logoColor=black)
+![Language](https://img.shields.io/badge/Language-Python-FFD60A?style=for-the-badge&logo=python&logoColor=black)
 
 A comprehensive electric vehicle (EV) analytics solution designed to evaluate market concentration, pricing segmentation, technology architecture, policy eligibility, and geographic adoption patterns across Washington State (99.74% of the dataset) using SQL Server, Power BI, Excel, and dimensional modeling (Star Schema).
 
@@ -177,8 +177,8 @@ This project transforms raw EV registration and pricing data into executive-leve
 WITH Brand_Summary AS (
     SELECT
         dc.Company,
-        COUNT(fe.CompanyID)        AS No_of_EVs,
-        SUM(fe.Price)              AS Total_Price
+        COUNT(fe.CompanyID) AS No_of_EVs,
+        SUM(fe.Price) AS Total_Price
     FROM fact_ev_vehicle fe
     INNER JOIN Dim_Company dc
         ON fe.CompanyID = dc.CompanyID
@@ -188,11 +188,11 @@ SELECT
     Company,
     No_of_EVs,
     Total_Price,
-    ROUND(No_of_EVs * 100.0 / SUM(No_of_EVs) OVER (), 2)              AS Market_Share_Pct,
+    ROUND(No_of_EVs * 100.0 / SUM(No_of_EVs) OVER (), 2) AS Market_Share_Pct,
     ROUND(SUM(No_of_EVs) OVER (ORDER BY No_of_EVs DESC
           ROWS UNBOUNDED PRECEDING) * 100.0
-          / SUM(No_of_EVs) OVER (), 2)                                 AS Cumulative_Share_Pct,
-    RANK() OVER (ORDER BY No_of_EVs DESC)                              AS Brand_Rank
+          / SUM(No_of_EVs) OVER (), 2) AS Cumulative_Share_Pct,
+    RANK() OVER (ORDER BY No_of_EVs DESC) AS Brand_Rank
 FROM Brand_Summary
 ORDER BY No_of_EVs DESC;
 ```
@@ -204,11 +204,11 @@ ORDER BY No_of_EVs DESC;
 ```sql
 SELECT
     fe.Price_Status,
-    COUNT(*)                                                            AS No_of_EVs,
-    ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER (), 2)                   AS Share_Pct,
-    ROUND(AVG(fe.Price), 2)                                             AS Avg_Segment_Price,
+    COUNT(*) AS No_of_EVs,
+    ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER (), 2) AS Share_Pct,
+    ROUND(AVG(fe.Price), 2) AS Avg_Segment_Price,
     ROUND(AVG(fe.Price) - (SELECT AVG(Price) FROM fact_ev_vehicle), 2)  AS Price_Diff_vs_Market_Avg,
-    NTILE(4) OVER (ORDER BY AVG(fe.Price))                              AS Price_Quartile
+    NTILE(4) OVER (ORDER BY AVG(fe.Price)) AS Price_Quartile
 FROM fact_ev_vehicle fe
 GROUP BY fe.Price_Status
 ORDER BY No_of_EVs DESC;
@@ -222,10 +222,10 @@ ORDER BY No_of_EVs DESC;
 WITH Tech_Summary AS (
     SELECT
         dt.Type,
-        dcafv.[Clean Alternative Fuel Vehicle (CAFV) Eligibility]   AS CAFV_Eligibility,
-        COUNT(*)                                                    AS No_of_EVs,
-        SUM(fe.[Electric Range (M)])                                AS Total_Range,
-        AVG(fe.[Electric Range (M)])                                AS Avg_Range
+        dcafv.[Clean Alternative Fuel Vehicle (CAFV) Eligibility] AS CAFV_Eligibility,
+        COUNT(*) AS No_of_EVs,
+        SUM(fe.[Electric Range (M)]) AS Total_Range,
+        AVG(fe.[Electric Range (M)]) AS Avg_Range
     FROM fact_ev_vehicle fe
     INNER JOIN Dim_Type dt
         ON fe.TypeID = dt.TypeID
@@ -237,10 +237,10 @@ SELECT
     Type,
     CAFV_Eligibility,
     No_of_EVs,
-    ROUND(No_of_EVs * 100.0 / SUM(No_of_EVs) OVER (), 2)   AS Share_Pct,
+    ROUND(No_of_EVs * 100.0 / SUM(No_of_EVs) OVER (), 2) AS Share_Pct,
     Total_Range,
-    ROUND(Avg_Range, 2)                                     AS Avg_Range,
-    DENSE_RANK() OVER (ORDER BY Avg_Range DESC)             AS Range_Rank
+    ROUND(Avg_Range, 2) AS Avg_Range,
+    DENSE_RANK() OVER (ORDER BY Avg_Range DESC) AS Range_Rank
 FROM Tech_Summary
 ORDER BY No_of_EVs DESC;
 ```
@@ -254,7 +254,7 @@ WITH County_City_Summary AS (
     SELECT
         dl.County,
         dl.City,
-        COUNT(*)                                            AS No_of_EVs
+        COUNT(*) AS No_of_EVs
     FROM fact_ev_vehicle fe
     INNER JOIN Dim_Location dl
         ON fe.LocationID = dl.LocationID
@@ -264,10 +264,10 @@ SELECT
     County,
     City,
     No_of_EVs,
-    ROUND(No_of_EVs * 100.0 / SUM(No_of_EVs) OVER (), 2)                          AS Share_Pct,
+    ROUND(No_of_EVs * 100.0 / SUM(No_of_EVs) OVER (), 2) AS Share_Pct,
     ROUND(SUM(No_of_EVs) OVER (PARTITION BY County) * 100.0
-          / SUM(No_of_EVs) OVER (), 2)                                            AS County_Share_Pct,
-    ROW_NUMBER() OVER (PARTITION BY County ORDER BY No_of_EVs DESC)               AS City_Rank_In_County
+          / SUM(No_of_EVs) OVER (), 2) AS County_Share_Pct,
+    ROW_NUMBER() OVER (PARTITION BY County ORDER BY No_of_EVs DESC) AS City_Rank_In_County
 FROM County_City_Summary
 ORDER BY County_Share_Pct DESC, City_Rank_In_County;
 ```
@@ -279,28 +279,28 @@ ORDER BY County_Share_Pct DESC, City_Rank_In_County;
 ```sql
 WITH Yearly_Counts AS (
     SELECT
-        fe.[Model Year]     AS Model_Year,
-        COUNT(*)             AS EV_Count
+        fe.[Model Year] AS Model_Year,
+        COUNT(*) AS EV_Count
     FROM fact_ev_vehicle fe
     GROUP BY fe.[Model Year]
 )
 SELECT
     Model_Year,
     EV_Count,
-    LAG(EV_Count) OVER (ORDER BY Model_Year)                          AS Prev_Year_Count,
+    LAG(EV_Count) OVER (ORDER BY Model_Year) AS Prev_Year_Count,
     ROUND(
         (EV_Count - LAG(EV_Count) OVER (ORDER BY Model_Year)) * 100.0
         / NULLIF(LAG(EV_Count) OVER (ORDER BY Model_Year), 0), 1
-    )                                                                  AS YoY_Change_Pct,
+    ) AS YoY_Change_Pct,
     ROUND(AVG(EV_Count) OVER (
         ORDER BY Model_Year
-        ROWS BETWEEN 2 PRECEDING AND CURRENT ROW), 1)                  AS Rolling_3Yr_Avg,
+        ROWS BETWEEN 2 PRECEDING AND CURRENT ROW), 1) AS Rolling_3Yr_Avg,
     CASE
         WHEN ABS((EV_Count - LAG(EV_Count) OVER (ORDER BY Model_Year)) * 100.0
              / NULLIF(LAG(EV_Count) OVER (ORDER BY Model_Year), 0)) > 500
         THEN 'Flag: Possible Data Anomaly'
         ELSE 'Normal Variance'
-    END                                                                  AS Data_Quality_Flag
+    END AS Data_Quality_Flag
 FROM Yearly_Counts
 ORDER BY Model_Year;
 ```
@@ -314,7 +314,7 @@ WITH Model_Summary AS (
     SELECT
         dc.Company,
         dm.Model,
-        COUNT(*)     AS No_of_EVs
+        COUNT(*) AS No_of_EVs
     FROM fact_ev_vehicle fe
     INNER JOIN Dim_Company dc ON fe.CompanyID = dc.CompanyID
     INNER JOIN Dim_Model dm   ON fe.ModelID = dm.ModelID
@@ -324,7 +324,7 @@ SELECT
     Company,
     Model,
     No_of_EVs,
-    RANK() OVER (PARTITION BY Company ORDER BY No_of_EVs DESC)   AS Model_Rank_In_Brand
+    RANK() OVER (PARTITION BY Company ORDER BY No_of_EVs DESC) AS Model_Rank_In_Brand
 FROM Model_Summary
 QUALIFY Model_Rank_In_Brand = 1
 ORDER BY No_of_EVs DESC;
@@ -447,10 +447,10 @@ EV-Population-Market-Analytics/
 
 ## Support & Contact
 
-**Project Author:** Mohamed Fouad
-**Role:** Data Analyst
-**Email:** m.fouad.business002@gmail.com
-**LinkedIn:** [Mohamed Fouad](https://linkedin.com/in/mohamed-fouad-88608424b)
+**Project Author:** Mohamed Fouad  
+**Role:** Data Analyst  
+**Email:** m.fouad.business002@gmail.com  
+**LinkedIn:** [Mohamed Fouad](https://linkedin.com/in/mohamed-fouad-88608424b)  
 **GitHub:** [@mohamedfouad00](https://github.com/mohamedfouad00)
 
 ---
@@ -459,17 +459,6 @@ EV-Population-Market-Analytics/
 This project is provided as-is for educational and business analytical purposes.
 
 ---
-
-## Contributing
-Contributions are welcome! Please follow these steps:
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
----
-
 **Last Updated:** 2026
 **Data Period:** Vehicle Registrations Dataset (Washington State-centric)
 **Dataset:** EV Population & Market Performance Dataset (3,454 records)
