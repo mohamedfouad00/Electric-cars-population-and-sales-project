@@ -437,11 +437,14 @@ EV-Population-Market-Analytics/
 ---
 
 ## Reference Resources
-- [Power BI Live Report](<iframe title="E-Cars Population and Sales Dashboard" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiMjJiZThlYmMtOGNlMi00YjI1LTgxZWUtZWRjZTQ1NmU1YWVlIiwidCI6ImMzMGI1NDRmLWJhMTgtNGUyYy04YjllLTdmYWU5ZmU5NWUzYSJ9&pageName=24c75cdeb6863086cd9d" frameborder="0" allowFullScreen="true"></iframe>)
+
+- [Power BI Live Report](https://app.powerbi.com/view?r=eyJrIjoiMjJiZThlYmMtOGNlMi00YjI1LTgxZWUtZWRjZTQ1NmU1YWVlIiwidCI6ImMzMGI1NDRmLWJhMTgtNGUyYy04YjllLTdmYWU5ZmU5NWUzYSJ9&pageName=24c75cdeb6863086cd9d)
+- [EV Population Market Performance & Insights Report](https://drive.google.com/file/d/1bce3eMa8XHjLvszgs0_rb0N7UDqBTQoy/view?usp=sharing)
 - [Star Schema Design — Wikipedia](https://en.wikipedia.org/wiki/Star_schema)
-- International Energy Agency — Global EV Outlook 2025
-- Washington State Department of Transportation — EV Registrations Dashboard
-- Washington State Department of Licensing — Clean-Fuel Tax Exemption Page
+- [International Energy Agency — Global EV Outlook 2025](https://www.iea.org/reports/global-ev-outlook-2025)
+- [Washington State Department of Transportation — EV Registrations Dashboard](https://wsdot.wa.gov)
+- [Washington State Department of Licensing — Clean-Fuel Tax Exemption Page](https://dol.wa.gov)
+
 
 ---
 
