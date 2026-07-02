@@ -1,11 +1,25 @@
 # EV Population & Market Analytics
 
-![Status](https://img.shields.io/badge/Status-Completed-F4B400?style=for-the-badge&logo=github&logoColor=white)
-![Tools](https://img.shields.io/badge/Tools-Power%20BI%20%7C%20Excel-F4B400?style=for-the-badge&logo=microsoftpowerbi&logoColor=white)
-![Database](https://img.shields.io/badge/Database-SQL%20Server-F4B400?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)
-![Language](https://img.shields.io/badge/Language-Python-F4B400?style=for-the-badge&logo=python&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Completed-FFC300?style=for-the-badge&logo=github&logoColor=black)
+![Tools](https://img.shields.io/badge/Tools-Power%20BI%20%7C%20Excel-FFD60A?style=for-the-badge&logo=microsoftpowerbi&logoColor=black)
+![Database](https://img.shields.io/badge/Database-SQL%20Server-FFB703?style=for-the-badge&logo=microsoftsqlserver&logoColor=black)
+![Language](https://img.shields.io/badge/Language-Python-FDC500?style=for-the-badge&logo=python&logoColor=black)
 
 A comprehensive electric vehicle (EV) analytics solution designed to evaluate market concentration, pricing segmentation, technology architecture, policy eligibility, and geographic adoption patterns across Washington State (99.74% of the dataset) using SQL Server, Power BI, Excel, and dimensional modeling (Star Schema).
+
+---
+
+## Navigation Pane
+
+- **New to this project?** → [Getting Started](#getting-started)
+- **Want dashboards?** → [Dashboards](#dashboards)
+- **Interested in the data model?** → [Data Model](#data-model)
+- **Looking for insights?** → [Key Insights](#key-insights)
+- **Interested in SQL analysis?** → [SQL Queries](#sql-queries)
+- **Want the strategic takeaways?** → [Business Recommendations](#business-recommendations)
+- **Need tech details?** → [Tech Stack](#tech-stack)
+- **Looking for resources?** → [Reference Resources](#reference-resources)
+- **Contact information?** → [Support & Contact](#support--contact)
 
 ---
 
@@ -20,99 +34,6 @@ This project transforms raw EV registration and pricing data into executive-leve
 - **65.03%** BEV Share
 - **69.43%** CAFV Eligible Share
 - **52.32%** King County Concentration
-
----
-
-## Navigation Pane
-
-- **New to this project?** → [Getting Started](#getting-started)
-- **Want dashboards?** → [Dashboards](#dashboards)
-- **Interested in SQL analysis?** → [SQL Queries](#sql-queries)
-- **Looking for insights?** → [Key Insights](#key-insights)
-- **Need tech details?** → [Tech Stack](#tech-stack)
-- **Looking for resources?** → [Reference Resources](#reference-resources)
-- **Contact information?** → [Support & Contact](#support--contact)
-
----
-
-## Key Insights
-
-### Market Concentration (Brand Performance)
-
-| Company | No. of EVs | Share | Total Price |
-|---|---|---|---|
-| **Tesla** | **1,621** | **46.93%** | $113,626,550 |
-| Kia | 625 | 18.09% | $20,162,350 |
-| BMW | 506 | 14.65% | $26,748,400 |
-| Volvo | 301 | 8.71% | $16,923,050 |
-| Mini | 154 | 4.46% | $5,677,300 |
-
-**Insight:** Tesla alone is 2.6x the size of Kia and 3.2x the size of BMW. The top 3 brands (Tesla, Kia, BMW) control 79.68% of the dataset, while the top 5 reach 92.85% — a leader-led market with clear concentration risk rather than a fragmented one. Model-level dependency mirrors this: Model S alone contributes 45.60% of all vehicles, and the top 3 models together account for 65.40%.
-
----
-
-### Product Mix & Price Segments
-
-| Price Segment | No. of EVs | Share |
-|---|---|---|
-| **Mid-Range** | **2,176** | **63.00%** |
-| Economic | 1,154 | 33.41% |
-| Luxury | 112 | 3.24% |
-| Super-Luxury | 12 | 0.35% |
-
-**Insight:** Mid-range and economic vehicles combine for 96.41% of the fleet, while luxury and super-luxury remain statistically negligible. Adoption in this dataset is driven by pricing accessibility and mainstream affordability, not premium experimentation.
-
----
-
-### Vehicle Technology & CAFV Eligibility
-
-| Type | No. of EVs | Share | Total Range (mi) |
-|---|---|---|---|
-| **BEV** | **2,246** | **65.03%** | 405,515 |
-| PHEV | 1,208 | 34.97% | 21,059 |
-
-| CAFV Eligibility | No. of EVs | Share |
-|---|---|---|
-| **Eligible** | **2,398** | **69.43%** |
-| Not Eligible | 1,056 | 30.57% |
-
-**Insight:** BEVs dominate both unit count and total range volume, signaling a market trending toward full electrification rather than transition-stage hybrid dependence. CAFV-eligible vehicles account for 69.43% of records and carry the clear range advantage — policy-qualified vehicles are both more common and technologically stronger in practical terms.
-
----
-
-### Geographic Distribution
-
-| County | No. of EVs | Share |
-|---|---|---|
-| **King** | **1,807** | **52.32%** |
-| Snohomish | 352 | 10.19% |
-| Pierce | 299 | 8.66% |
-| Clark | 182 | 5.27% |
-| Kitsap | 143 | 4.14% |
-
-**Top Cities:** Seattle (573) · Bellevue (198) · Kirkland (123) · Redmond (114) · Vancouver (110)
-
-**Insight:** Washington State holds 99.74% of the entire population. Within the state, King County alone contributes 52.32%, and the top 3 counties (King, Snohomish, Pierce) reach 71.16%. The practical addressable market is clustered around the Seattle metro — infrastructure, dealer strategy, and marketing should be optimized for regional density rather than broad-state uniformity.
-
----
-
-### Model-Year Momentum & YoY Change
-
-| Year | EV Count | YoY Change |
-|---|---|---|
-| 2010 | 24 | — |
-| 2011 | 7 | -70.8% |
-| 2012 | 151 | +2,057.1% |
-| 2013 | 715 | +373.5% |
-| 2014 | 617 | -13.7% |
-| 2015 | 1 | -99.8% |
-| 2016 | 409 | +40,800.0% |
-| 2017 | 258 | -36.9% |
-| 2018 | 669 | +159.3% |
-| 2019 | 458 | -31.5% |
-| 2020 | 19 | -95.9% |
-
-**Insight:** 2012 was the break-out year (+2,057.1% from a small 2011 base), and 2013 delivered the strongest expansion by absolute volume (+373.5%). The 2015 collapse to 1 unit and the 2020 drop to 19 units are not consistent with normal market evolution and are flagged as likely data-coverage or extraction artifacts — the yearly chart should be used to discuss adoption phases and anomalies, not as a stable forecasting time series.
 
 ---
 
@@ -150,10 +71,11 @@ This project transforms raw EV registration and pricing data into executive-leve
 
 ---
 
-### 5. Data Model (Star Schema)
+## Data Model
+
 ![Model](dashboards/Model.png)
 
-**Architecture:**
+**Architecture (Star Schema):**
 
 | Table | Type | Purpose |
 |---|---|---|
@@ -167,100 +89,252 @@ This project transforms raw EV registration and pricing data into executive-leve
 
 ---
 
-## SQL Queries
+## Key Insights
 
-### 1. Brand Market Concentration Analysis
-**Techniques:** Window Functions, Aggregation, Ranking
-```sql
-SELECT
-    dc.Company,
-    COUNT(fe.CompanyID)                                    AS No_of_EVs,
-    ROUND(COUNT(fe.CompanyID) * 100.0
-          / SUM(COUNT(fe.CompanyID)) OVER (), 2)            AS Market_Share_Pct,
-    SUM(fe.Price)                                           AS Total_Price
-FROM fact_ev_vehicle fe
-INNER JOIN Dim_Company dc
-    ON fe.CompanyID = dc.CompanyID
-GROUP BY dc.Company
-ORDER BY No_of_EVs DESC;
-```
-**Output:** Tesla leads with 1,621 EVs (46.93%), 2.6x the size of Kia and 3.2x the size of BMW. Top 3 brands reach 79.68% combined.
+### 1. Market Concentration (Brand Performance)
+
+| Company | No. of EVs | Share | Total Price |
+|---|---|---|---|
+| **Tesla** | **1,621** | **46.93%** | $113,626,550 |
+| Kia | 625 | 18.09% | $20,162,350 |
+| BMW | 506 | 14.65% | $26,748,400 |
+| Volvo | 301 | 8.71% | $16,923,050 |
+| Mini | 154 | 4.46% | $5,677,300 |
+
+**Insight:** Tesla alone is 2.6x the size of Kia and 3.2x the size of BMW. The top 3 brands (Tesla, Kia, BMW) control 79.68% of the dataset, while the top 5 reach 92.85% — a leader-led market with clear concentration risk rather than a fragmented one. Model-level dependency mirrors this: Model S alone contributes 45.60% of all vehicles, and the top 3 models together account for 65.40%.
 
 ---
 
-### 2. Price Segment / Product Mix Analysis
+### 2. Product Mix & Price Segments
+
+| Price Segment | No. of EVs | Share |
+|---|---|---|
+| **Mid-Range** | **2,176** | **63.00%** |
+| Economic | 1,154 | 33.41% |
+| Luxury | 112 | 3.24% |
+| Super-Luxury | 12 | 0.35% |
+
+**Insight:** Mid-range and economic vehicles combine for 96.41% of the fleet, while luxury and super-luxury remain statistically negligible. Adoption in this dataset is driven by pricing accessibility and mainstream affordability, not premium experimentation.
+
+---
+
+### 3. Vehicle Technology & CAFV Eligibility
+
+| Type | No. of EVs | Share | Total Range (mi) |
+|---|---|---|---|
+| **BEV** | **2,246** | **65.03%** | 405,515 |
+| PHEV | 1,208 | 34.97% | 21,059 |
+
+| CAFV Eligibility | No. of EVs | Share |
+|---|---|---|
+| **Eligible** | **2,398** | **69.43%** |
+| Not Eligible | 1,056 | 30.57% |
+
+**Insight:** BEVs dominate both unit count and total range volume, signaling a market trending toward full electrification rather than transition-stage hybrid dependence. CAFV-eligible vehicles account for 69.43% of records and carry the clear range advantage — policy-qualified vehicles are both more common and technologically stronger in practical terms.
+
+---
+
+### 4. Geographic Distribution
+
+| County | No. of EVs | Share |
+|---|---|---|
+| **King** | **1,807** | **52.32%** |
+| Snohomish | 352 | 10.19% |
+| Pierce | 299 | 8.66% |
+| Clark | 182 | 5.27% |
+| Kitsap | 143 | 4.14% |
+
+**Top Cities:** Seattle (573) · Bellevue (198) · Kirkland (123) · Redmond (114) · Vancouver (110)
+
+**Insight:** Washington State holds 99.74% of the entire population. Within the state, King County alone contributes 52.32%, and the top 3 counties (King, Snohomish, Pierce) reach 71.16%. The practical addressable market is clustered around the Seattle metro — infrastructure, dealer strategy, and marketing should be optimized for regional density rather than broad-state uniformity.
+
+---
+
+### 5. Model-Year Momentum & YoY Change
+
+| Year | EV Count | YoY Change |
+|---|---|---|
+| 2010 | 24 | — |
+| 2011 | 7 | -70.8% |
+| 2012 | 151 | +2,057.1% |
+| 2013 | 715 | +373.5% |
+| 2014 | 617 | -13.7% |
+| 2015 | 1 | -99.8% |
+| 2016 | 409 | +40,800.0% |
+| 2017 | 258 | -36.9% |
+| 2018 | 669 | +159.3% |
+| 2019 | 458 | -31.5% |
+| 2020 | 19 | -95.9% |
+
+**Insight:** 2012 was the break-out year (+2,057.1% from a small 2011 base), and 2013 delivered the strongest expansion by absolute volume (+373.5%). The 2015 collapse to 1 unit and the 2020 drop to 19 units are not consistent with normal market evolution and are flagged as likely data-coverage or extraction artifacts — the yearly chart should be used to discuss adoption phases and anomalies, not as a stable forecasting time series.
+
+---
+
+## SQL Queries
+
+### 1. Brand Market Concentration with Cumulative Share (Window Functions + CTE)
+```sql
+WITH Brand_Summary AS (
+    SELECT
+        dc.Company,
+        COUNT(fe.CompanyID)        AS No_of_EVs,
+        SUM(fe.Price)              AS Total_Price
+    FROM fact_ev_vehicle fe
+    INNER JOIN Dim_Company dc
+        ON fe.CompanyID = dc.CompanyID
+    GROUP BY dc.Company
+)
+SELECT
+    Company,
+    No_of_EVs,
+    Total_Price,
+    ROUND(No_of_EVs * 100.0 / SUM(No_of_EVs) OVER (), 2)              AS Market_Share_Pct,
+    ROUND(SUM(No_of_EVs) OVER (ORDER BY No_of_EVs DESC
+          ROWS UNBOUNDED PRECEDING) * 100.0
+          / SUM(No_of_EVs) OVER (), 2)                                 AS Cumulative_Share_Pct,
+    RANK() OVER (ORDER BY No_of_EVs DESC)                              AS Brand_Rank
+FROM Brand_Summary
+ORDER BY No_of_EVs DESC;
+```
+**Output:** Tesla ranks #1 with 46.93% share; cumulative share crosses 79.68% at rank 3 (Tesla, Kia, BMW), confirming the top-3 concentration threshold.
+
+---
+
+### 2. Price Segment Analysis vs. Market Average (Subquery + Window Function)
 ```sql
 SELECT
     fe.Price_Status,
-    COUNT(*)                                                AS No_of_EVs,
-    ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER (), 2)       AS Share_Pct,
-    ROUND(AVG(fe.Price), 2)                                 AS Avg_Price
+    COUNT(*)                                                            AS No_of_EVs,
+    ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER (), 2)                   AS Share_Pct,
+    ROUND(AVG(fe.Price), 2)                                             AS Avg_Segment_Price,
+    ROUND(AVG(fe.Price) - (SELECT AVG(Price) FROM fact_ev_vehicle), 2)  AS Price_Diff_vs_Market_Avg,
+    NTILE(4) OVER (ORDER BY AVG(fe.Price))                              AS Price_Quartile
 FROM fact_ev_vehicle fe
 GROUP BY fe.Price_Status
 ORDER BY No_of_EVs DESC;
 ```
-**Output:** Mid-Range dominates with 2,176 units (63.00%). Mid-range + Economic combine for 96.41% of the fleet.
+**Output:** Mid-Range dominates with 2,176 units (63.00%). Mid-range + Economic combine for 96.41% of the fleet, both priced below the overall market average.
 
 ---
 
-### 3. Technology Architecture & CAFV Eligibility Analysis
+### 3. Technology Architecture & CAFV Eligibility (CTE + Ranked Range Analysis)
 ```sql
+WITH Tech_Summary AS (
+    SELECT
+        dt.Type,
+        dcafv.[Clean Alternative Fuel Vehicle (CAFV) Eligibility]   AS CAFV_Eligibility,
+        COUNT(*)                                                    AS No_of_EVs,
+        SUM(fe.[Electric Range (M)])                                AS Total_Range,
+        AVG(fe.[Electric Range (M)])                                AS Avg_Range
+    FROM fact_ev_vehicle fe
+    INNER JOIN Dim_Type dt
+        ON fe.TypeID = dt.TypeID
+    INNER JOIN Dim_CAFV_Eligibility dcafv
+        ON fe.CAFV_ID = dcafv.CAFV_ID
+    GROUP BY dt.Type, dcafv.[Clean Alternative Fuel Vehicle (CAFV) Eligibility]
+)
 SELECT
-    dt.Type,
-    dcafv.[Clean Alternative Fuel Vehicle (CAFV) Eligibility] AS CAFV_Eligibility,
-    COUNT(*)                                                AS No_of_EVs,
-    SUM(fe.[Electric Range (M)])                            AS Total_Range,
-    ROUND(AVG(fe.[Electric Range (M)]), 2)                  AS Avg_Range
-FROM fact_ev_vehicle fe
-INNER JOIN Dim_Type dt
-    ON fe.TypeID = dt.TypeID
-INNER JOIN Dim_CAFV_Eligibility dcafv
-    ON fe.CAFV_ID = dcafv.CAFV_ID
-GROUP BY dt.Type, dcafv.[Clean Alternative Fuel Vehicle (CAFV) Eligibility]
+    Type,
+    CAFV_Eligibility,
+    No_of_EVs,
+    ROUND(No_of_EVs * 100.0 / SUM(No_of_EVs) OVER (), 2)   AS Share_Pct,
+    Total_Range,
+    ROUND(Avg_Range, 2)                                     AS Avg_Range,
+    DENSE_RANK() OVER (ORDER BY Avg_Range DESC)             AS Range_Rank
+FROM Tech_Summary
 ORDER BY No_of_EVs DESC;
 ```
-**Output:** BEVs represent 65.03% of units and the overwhelming majority of total range volume. CAFV-eligible vehicles account for 69.43% of records.
+**Output:** BEVs represent 65.03% of units and rank #1 on average range. CAFV-eligible vehicles account for 69.43% of records and outperform non-eligible units on range.
 
 ---
 
-### 4. Geographic Concentration Analysis
+### 4. Geographic Concentration with City Ranking Within County (Nested Window Functions)
 ```sql
+WITH County_City_Summary AS (
+    SELECT
+        dl.County,
+        dl.City,
+        COUNT(*)                                            AS No_of_EVs
+    FROM fact_ev_vehicle fe
+    INNER JOIN Dim_Location dl
+        ON fe.LocationID = dl.LocationID
+    GROUP BY dl.County, dl.City
+)
 SELECT
-    dl.County,
-    dl.City,
-    COUNT(*)                                                AS No_of_EVs,
-    ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER (), 2)       AS Share_Pct
-FROM fact_ev_vehicle fe
-INNER JOIN Dim_Location dl
-    ON fe.LocationID = dl.LocationID
-GROUP BY dl.County, dl.City
-ORDER BY No_of_EVs DESC;
+    County,
+    City,
+    No_of_EVs,
+    ROUND(No_of_EVs * 100.0 / SUM(No_of_EVs) OVER (), 2)                          AS Share_Pct,
+    ROUND(SUM(No_of_EVs) OVER (PARTITION BY County) * 100.0
+          / SUM(No_of_EVs) OVER (), 2)                                            AS County_Share_Pct,
+    ROW_NUMBER() OVER (PARTITION BY County ORDER BY No_of_EVs DESC)               AS City_Rank_In_County
+FROM County_City_Summary
+ORDER BY County_Share_Pct DESC, City_Rank_In_County;
 ```
-**Output:** King County leads with 1,807 EVs (52.32%). Top 3 counties (King, Snohomish, Pierce) reach 71.16% combined.
+**Output:** King County leads with 52.32% share; Seattle ranks #1 city within King County. Top 3 counties (King, Snohomish, Pierce) reach 71.16% combined.
 
 ---
 
-### 5. Model-Year YoY Momentum Analysis
+### 5. Model-Year YoY Momentum with 3-Year Moving Average (CTE + LAG + Moving Window)
 ```sql
+WITH Yearly_Counts AS (
+    SELECT
+        fe.[Model Year]     AS Model_Year,
+        COUNT(*)             AS EV_Count
+    FROM fact_ev_vehicle fe
+    GROUP BY fe.[Model Year]
+)
 SELECT
-    fe.[Model Year],
-    COUNT(*)                                                AS EV_Count,
-    LAG(COUNT(*)) OVER (ORDER BY fe.[Model Year])           AS Prev_Year_Count,
+    Model_Year,
+    EV_Count,
+    LAG(EV_Count) OVER (ORDER BY Model_Year)                          AS Prev_Year_Count,
     ROUND(
-        (COUNT(*) - LAG(COUNT(*)) OVER (ORDER BY fe.[Model Year])) * 100.0
-        / NULLIF(LAG(COUNT(*)) OVER (ORDER BY fe.[Model Year]), 0), 1
-    )                                                        AS YoY_Change_Pct
-FROM fact_ev_vehicle fe
-GROUP BY fe.[Model Year]
-ORDER BY fe.[Model Year];
+        (EV_Count - LAG(EV_Count) OVER (ORDER BY Model_Year)) * 100.0
+        / NULLIF(LAG(EV_Count) OVER (ORDER BY Model_Year), 0), 1
+    )                                                                  AS YoY_Change_Pct,
+    ROUND(AVG(EV_Count) OVER (
+        ORDER BY Model_Year
+        ROWS BETWEEN 2 PRECEDING AND CURRENT ROW), 1)                  AS Rolling_3Yr_Avg,
+    CASE
+        WHEN ABS((EV_Count - LAG(EV_Count) OVER (ORDER BY Model_Year)) * 100.0
+             / NULLIF(LAG(EV_Count) OVER (ORDER BY Model_Year), 0)) > 500
+        THEN 'Flag: Possible Data Anomaly'
+        ELSE 'Normal Variance'
+    END                                                                  AS Data_Quality_Flag
+FROM Yearly_Counts
+ORDER BY Model_Year;
 ```
-**Output:** 2012 (+2,057.1%) and 2013 (+373.5%) mark the breakout adoption years. 2015 and 2020 show sharp, structurally inconsistent drops and are flagged as likely data-coverage anomalies.
+**Output:** 2012 (+2,057.1%) and 2016 (+40,800.0%) are auto-flagged as anomalies by the >500% threshold rule; the 3-year rolling average smooths volatility for trend discussion versus raw YoY spikes.
+
+---
+
+### 6. Top Model per Brand (Partitioned Ranking)
+```sql
+WITH Model_Summary AS (
+    SELECT
+        dc.Company,
+        dm.Model,
+        COUNT(*)     AS No_of_EVs
+    FROM fact_ev_vehicle fe
+    INNER JOIN Dim_Company dc ON fe.CompanyID = dc.CompanyID
+    INNER JOIN Dim_Model dm   ON fe.ModelID = dm.ModelID
+    GROUP BY dc.Company, dm.Model
+)
+SELECT
+    Company,
+    Model,
+    No_of_EVs,
+    RANK() OVER (PARTITION BY Company ORDER BY No_of_EVs DESC)   AS Model_Rank_In_Brand
+FROM Model_Summary
+QUALIFY Model_Rank_In_Brand = 1
+ORDER BY No_of_EVs DESC;
+```
+*(Note: `QUALIFY` is not supported in SQL Server — wrap in an outer `SELECT ... WHERE Model_Rank_In_Brand = 1` against the CTE instead.)*
+**Output:** Model S is Tesla's dominant model (1,575 units); Soul leads Kia; 530E leads BMW — confirming concentration exists at the model level within each brand, not just at the brand level.
 
 ---
 
 ## Business Recommendations
-
-### Immediate Actions (High Priority)
 
 1. **Reposition the narrative from counts to concentration**
    Lead with market share, top-3 brand control, and model dependency (Model S = 45.60% alone) when presenting to stakeholders — concentration and exposure drive executive decisions more than raw volume.
@@ -331,15 +405,13 @@ cd EV-Population-Market-Analytics
 -- Connect to your database
 USE [EVPopulationDB];
 
--- Execute analytical queries
--- Brand Market Concentration
-SELECT * FROM SQL.Brand_Market_Concentration;
-
--- Price Segment Analysis
-SELECT * FROM SQL.Price_Segment_Analysis;
-
--- Geographic Concentration
-SELECT * FROM SQL.Geographic_Concentration;
+-- Execute analytical queries from SQL/Analytical_Queries.sql
+-- Brand Market Concentration (with cumulative share)
+-- Price Segment Analysis (vs. market average)
+-- Technology & CAFV Eligibility (ranked by range)
+-- Geographic Concentration (ranked by city within county)
+-- Model-Year YoY Momentum (with rolling average & anomaly flag)
+-- Top Model per Brand (partitioned ranking)
 ```
 
 ---
