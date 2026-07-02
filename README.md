@@ -1,9 +1,9 @@
 # EV Population & Market Analytics
 
-![Status](https://img.shields.io/badge/Status-Completed-1D3557?style=for-the-badge&logo=github&logoColor=white)
-![Tools](https://img.shields.io/badge/Tools-Power%20BI%20%7C%20Excel-457B9D?style=for-the-badge&logo=microsoftpowerbi&logoColor=white)
-![Database](https://img.shields.io/badge/Database-SQL%20Server-1D3557?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)
-![Language](https://img.shields.io/badge/Language-Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Completed-F4B400?style=for-the-badge&logo=github&logoColor=white)
+![Tools](https://img.shields.io/badge/Tools-Power%20BI%20%7C%20Excel-F4B400?style=for-the-badge&logo=microsoftpowerbi&logoColor=white)
+![Database](https://img.shields.io/badge/Database-SQL%20Server-F4B400?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)
+![Language](https://img.shields.io/badge/Language-Python-F4B400?style=for-the-badge&logo=python&logoColor=white)
 
 A comprehensive electric vehicle (EV) analytics solution designed to evaluate market concentration, pricing segmentation, technology architecture, policy eligibility, and geographic adoption patterns across Washington State (99.74% of the dataset) using SQL Server, Power BI, Excel, and dimensional modeling (Star Schema).
 
@@ -170,6 +170,7 @@ This project transforms raw EV registration and pricing data into executive-leve
 ## SQL Queries
 
 ### 1. Brand Market Concentration Analysis
+**Techniques:** Window Functions, Aggregation, Ranking
 ```sql
 SELECT
     dc.Company,
